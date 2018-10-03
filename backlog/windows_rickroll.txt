@@ -1,0 +1,10 @@
+DELAY 1000
+
+GUI r
+
+DELAY 200
+
+STRING https://www.youtube.com/watch?v=DLzxrzFCyOs 3000
+
+STRING f
+
