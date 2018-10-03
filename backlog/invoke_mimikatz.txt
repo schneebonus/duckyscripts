@@ -1,3 +1,6 @@
+REM Seems to be broken!
+REM https://github.com/PowerShellMafia/PowerSploit/issues/304
+
 GUI r
 DELAY 500
 STRING powershell Start-Process cmd -Verb runAs
